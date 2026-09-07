@@ -111,18 +111,6 @@ function Intro({ onOpen }: { onOpen: () => void }) {
         <motion.div variants={reveal} className="intro-korean">
           안녕하세요
         </motion.div>
-        <motion.div
-          variants={reveal}
-          className="intro-heart"
-          aria-hidden="true"
-        >
-          <motion.div
-            animate={{ scale: [1, 1.08, 0.98, 1.06, 1] }}
-            transition={{ duration: 1.8, repeat: Infinity, ease: "easeInOut" }}
-          >
-            <Heart size={64} strokeWidth={1.1} fill="currentColor" />
-          </motion.div>
-        </motion.div>
         <motion.p variants={reveal} className="eyebrow">
           Приглашение на Асянди
         </motion.p>

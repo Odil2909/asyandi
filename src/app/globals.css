@@ -108,15 +108,7 @@ a {
   font-family: var(--serif);
   font-size: 24px;
   letter-spacing: 0.18em;
-  margin-bottom: 30px;
-}
-.intro-heart {
-  width: 31px;
-  height: 31px;
-  margin: 0 auto 24px;
-  display: grid;
-  place-items: center;
-  color: #fff8f5;
+  margin-bottom: 20px;
 }
 .eyebrow,
 .section-label {
