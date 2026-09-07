@@ -19,7 +19,6 @@ import {
   Phone,
   Share2,
   Sparkles,
-  Star,
   X,
 } from "lucide-react";
 import { eventDateTime, invitation } from "@/config/invitation";
@@ -97,6 +96,11 @@ function Intro({ onOpen }: { onOpen: () => void }) {
       className="intro-screen"
       initial="hidden"
       animate="visible"
+      exit={{
+        opacity: 0,
+        y: "-18%",
+        transition: { duration: 0.9, ease: [0.22, 1, 0.36, 1] },
+      }}
       variants={stagger}
     >
       <div className="intro-topline">
@@ -107,8 +111,17 @@ function Intro({ onOpen }: { onOpen: () => void }) {
         <motion.div variants={reveal} className="intro-korean">
           안녕하세요
         </motion.div>
-        <motion.div variants={reveal} className="intro-mark">
-          <Star size={14} strokeWidth={1.2} />
+        <motion.div
+          variants={reveal}
+          className="intro-heart"
+          aria-hidden="true"
+        >
+          <motion.div
+            animate={{ scale: [1, 1.08, 0.98, 1.06, 1] }}
+            transition={{ duration: 1.8, repeat: Infinity, ease: "easeInOut" }}
+          >
+            <Heart size={64} strokeWidth={1.1} fill="currentColor" />
+          </motion.div>
         </motion.div>
         <motion.p variants={reveal} className="eyebrow">
           Приглашение на Асянди
@@ -121,8 +134,13 @@ function Intro({ onOpen }: { onOpen: () => void }) {
           16 <span>·</span> 09 <span>·</span> 2026
         </motion.div>
       </div>
-      <motion.button variants={reveal} className="open-button" onClick={onOpen}>
-        <span>Открыть приглашение</span>
+      <motion.button
+        variants={reveal}
+        className="scroll-cue"
+        onClick={onOpen}
+        aria-label="Листать вниз"
+      >
+        <span>Листайте вниз</span>
         <ArrowDown size={16} strokeWidth={1.4} />
       </motion.button>
       <div className="intro-vertical">A Y L I N · I K K O T</div>
@@ -576,6 +594,18 @@ function MusicPlayer() {
 export default function Invitation() {
   const [opened, setOpened] = useState(false);
   const [menuOpen, setMenuOpen] = useState(false);
+  useEffect(() => {
+    const openOnScroll = (event: WheelEvent | TouchEvent) => {
+      if (event instanceof WheelEvent && event.deltaY <= 0) return;
+      setOpened(true);
+    };
+    window.addEventListener("wheel", openOnScroll, { passive: true });
+    window.addEventListener("touchmove", openOnScroll, { passive: true });
+    return () => {
+      window.removeEventListener("wheel", openOnScroll);
+      window.removeEventListener("touchmove", openOnScroll);
+    };
+  }, []);
   const { scrollYProgress } = useScroll();
   const scaleX = useSpring(scrollYProgress, {
     stiffness: 100,
@@ -587,52 +617,50 @@ export default function Invitation() {
       <AnimatePresence>
         {!opened && <Intro onOpen={() => setOpened(true)} />}
       </AnimatePresence>
-      {opened && (
-        <motion.div
-          className="site-frame"
-          initial={{ opacity: 0 }}
-          animate={{ opacity: 1 }}
-          transition={{ duration: 0.8 }}
-        >
-          <motion.div className="progress-line" style={{ scaleX }} />
-          <header className="site-header">
-            <a href="#invitation" className="header-logo">
-              A<span>·</span>A
+      <motion.div
+        className="site-frame"
+        initial={{ opacity: 0 }}
+        animate={{ opacity: 1 }}
+        transition={{ duration: 0.8 }}
+      >
+        <motion.div className="progress-line" style={{ scaleX }} />
+        <header className="site-header">
+          <a href="#invitation" className="header-logo">
+            A<span>·</span>A
+          </a>
+          <nav className={menuOpen ? "menu-open" : ""}>
+            <a href="#details" onClick={() => setMenuOpen(false)}>
+              Праздник
             </a>
-            <nav className={menuOpen ? "menu-open" : ""}>
-              <a href="#details" onClick={() => setMenuOpen(false)}>
-                Праздник
-              </a>
-              <a href="#rsvp" onClick={() => setMenuOpen(false)}>
-                RSVP
-              </a>
-              <a href="#location" onClick={() => setMenuOpen(false)}>
-                Место
-              </a>
-            </nav>
-            <button
-              className="menu-button"
-              aria-label="Открыть меню"
-              onClick={() => setMenuOpen(!menuOpen)}
-            >
-              {menuOpen ? <X size={18} /> : <Menu size={18} />}
-            </button>
-          </header>
-          <main>
-            <Hero />
-            <InvitationText />
-            <Countdown />
-            <CalendarSection />
-            <Program />
-            <Tolchabi />
-            <RSVP />
-            <Location />
-            <Contacts />
-          </main>
-          <Footer />
-          <MusicPlayer />
-        </motion.div>
-      )}
+            <a href="#rsvp" onClick={() => setMenuOpen(false)}>
+              RSVP
+            </a>
+            <a href="#location" onClick={() => setMenuOpen(false)}>
+              Место
+            </a>
+          </nav>
+          <button
+            className="menu-button"
+            aria-label="Открыть меню"
+            onClick={() => setMenuOpen(!menuOpen)}
+          >
+            {menuOpen ? <X size={18} /> : <Menu size={18} />}
+          </button>
+        </header>
+        <main>
+          <Hero />
+          <InvitationText />
+          <Countdown />
+          <CalendarSection />
+          <Program />
+          <Tolchabi />
+          <RSVP />
+          <Location />
+          <Contacts />
+        </main>
+        <Footer />
+        <MusicPlayer />
+      </motion.div>
     </>
   );
 }
