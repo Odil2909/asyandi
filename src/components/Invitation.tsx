@@ -1,6 +1,7 @@
 "use client";
 
 import { FormEvent, useEffect, useRef, useState } from "react";
+import Image from "next/image";
 import { AnimatePresence, motion, useScroll, useSpring } from "framer-motion";
 import {
   ArrowDown,
@@ -313,6 +314,17 @@ function Intro({ onOpen }: { onOpen: () => void }) {
 function Hero() {
   return (
     <Section className="hero-section" id="invitation">
+      <Image
+        className="hero-background"
+        src="/hero-67.PNG"
+        alt=""
+        fill
+        priority
+        unoptimized
+        sizes="100vw"
+        aria-hidden="true"
+      />
+      <div className="hero-background-overlay" aria-hidden="true" />
       <div className="hero-topline">
         <span>Асянди</span>
         <span>16 · 09 · 2026</span>
