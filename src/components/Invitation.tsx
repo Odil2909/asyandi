@@ -167,7 +167,27 @@ function Hero() {
         её первый важный день
       </motion.p>
       <motion.div variants={reveal} className="hero-details">
-        <span>16 сентября 2026</span>
+        <span className="event-date">
+          16 сентября 2026
+          <motion.span
+            className="event-date-heart"
+            initial={{ opacity: 0, scale: 0.72 }}
+            animate={{ opacity: 1, scale: [0.92, 1.06, 0.96, 1] }}
+            transition={{
+              opacity: { duration: 0.7, delay: 0.25, ease: "easeOut" },
+              scale: {
+                duration: 1.8,
+                delay: 0.7,
+                repeat: Infinity,
+                repeatDelay: 2.2,
+                ease: "easeInOut",
+              },
+            }}
+            aria-hidden="true"
+          >
+            <Heart size={13} strokeWidth={1.2} fill="currentColor" />
+          </motion.span>
+        </span>
         <i />
         <span>19:00</span>
       </motion.div>

@@ -343,6 +343,16 @@ h2 {
   width: 1px;
   background: var(--line);
 }
+.event-date {
+  display: inline-flex;
+  align-items: center;
+  gap: 7px;
+}
+.event-date-heart {
+  display: inline-flex;
+  color: var(--wine);
+  transform-origin: center;
+}
 .text-link {
   margin-top: 35px;
   display: inline-flex;
