@@ -467,11 +467,25 @@ function Location() {
         06 <span>·</span> где встретимся
       </SectionLabel>
       <motion.div variants={reveal} className="location-card">
-        <div className="location-graphic">
-          <div className="map-lines" />
-          <MapPin size={28} strokeWidth={1.1} />
+        <a
+          className="location-graphic"
+          href={invitation.maps.google}
+          target="_blank"
+          rel="noreferrer"
+          aria-label="Открыть Bar Villa на карте"
+        >
+          <iframe
+            className="location-map"
+            src={invitation.maps.embed}
+            title="Bar Villa, Ташкент, ул. Уйсозлар, 7"
+            loading="lazy"
+            referrerPolicy="no-referrer-when-downgrade"
+          />
+          <span className="location-marker">
+            <MapPin size={28} strokeWidth={1.1} />
+          </span>
           <span>Bar Villa</span>
-        </div>
+        </a>
         <div className="location-info">
           <h2>Bar Villa</h2>
           <p>{invitation.address}</p>

@@ -824,6 +824,25 @@ h2 {
   position: relative;
   overflow: hidden;
 }
+.location-map {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  border: 0;
+  filter: saturate(0.7) sepia(0.12);
+  pointer-events: none;
+}
+.location-marker {
+  display: grid;
+  place-items: center;
+  width: 48px;
+  height: 48px;
+  border: 1px solid rgba(255, 248, 245, 0.62);
+  border-radius: 50%;
+  background: rgba(195, 72, 104, 0.9);
+  box-shadow: 0 0 0 8px rgba(255, 248, 245, 0.12);
+}
 .location-graphic span {
   font: 400 29px var(--serif);
 }
@@ -843,8 +862,8 @@ h2 {
     );
   transform: rotate(-8deg);
 }
-.location-graphic svg,
-.location-graphic span {
+.location-graphic > .location-marker,
+.location-graphic > span:last-child {
   z-index: 1;
 }
 .location-info {

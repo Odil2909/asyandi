@@ -5,14 +5,19 @@ export const invitation = {
   eventDate: "16.09.2026",
   eventTime: "19:00",
   venue: "Bar Villa",
-  address: "Адрес уточняется",
+  address: "Ташкент, ул. Уйсозлар, 7",
   parents: ["Алена", "Дима"],
   phone: "972333335",
   telegramUrl: "", // TODO: добавить username или прямую ссылку на Telegram.
   maps: {
+    latitude: 41.25395114518315,
+    longitude: 69.32503525396709,
     yandex:
-      "https://yandex.ru/maps/org/bar_villa/34988655641?si=21djbxnpywv6n9ptrfq12nyv7r",
-    google: "https://maps.app.goo.gl/7QxTgmetVTrthf4c8",
+      "https://yandex.com/maps/?ll=69.32503525396709%2C41.25395114518315&z=17&pt=69.32503525396709%2C41.25395114518315",
+    google:
+      "https://www.google.com/maps/search/?api=1&query=41.25395114518315%2C69.32503525396709",
+    embed:
+      "https://www.google.com/maps?q=41.25395114518315%2C69.32503525396709&z=17&output=embed",
   },
   program: [
     { time: "18:30", title: "Сбор гостей", note: "Встречаемся и знакомимся" },
