@@ -90,6 +90,126 @@ function IconFor({
   return <span className="ball-icon" aria-hidden="true" />;
 }
 
+const ambientElements = [
+  {
+    kind: "petal",
+    x: 7,
+    size: 0.78,
+    duration: 18,
+    delay: -4,
+    drift: 28,
+    opacity: 0.42,
+  },
+  {
+    kind: "heart",
+    x: 17,
+    size: 0.62,
+    duration: 24,
+    delay: -15,
+    drift: -22,
+    opacity: 0.3,
+  },
+  {
+    kind: "petal",
+    x: 29,
+    size: 1.12,
+    duration: 21,
+    delay: -9,
+    drift: 34,
+    opacity: 0.34,
+  },
+  {
+    kind: "heart",
+    x: 41,
+    size: 0.52,
+    duration: 17,
+    delay: -2,
+    drift: -18,
+    opacity: 0.26,
+  },
+  {
+    kind: "petal",
+    x: 53,
+    size: 0.7,
+    duration: 26,
+    delay: -18,
+    drift: 25,
+    opacity: 0.38,
+  },
+  {
+    kind: "heart",
+    x: 64,
+    size: 0.76,
+    duration: 22,
+    delay: -11,
+    drift: -30,
+    opacity: 0.3,
+  },
+  {
+    kind: "petal",
+    x: 75,
+    size: 0.92,
+    duration: 19,
+    delay: -6,
+    drift: 20,
+    opacity: 0.36,
+  },
+  {
+    kind: "heart",
+    x: 84,
+    size: 0.58,
+    duration: 25,
+    delay: -20,
+    drift: -26,
+    opacity: 0.28,
+  },
+  {
+    kind: "petal",
+    x: 93,
+    size: 0.68,
+    duration: 23,
+    delay: -13,
+    drift: 31,
+    opacity: 0.32,
+  },
+  {
+    kind: "heart",
+    x: 48,
+    size: 0.46,
+    duration: 20,
+    delay: -7,
+    drift: 18,
+    opacity: 0.24,
+  },
+] as const;
+
+function AmbientElements() {
+  return (
+    <div className="ambient-layer" aria-hidden="true">
+      {ambientElements.map((element, index) => (
+        <span
+          className={`ambient-element ambient-${element.kind}`}
+          key={`${element.kind}-${index}`}
+          style={
+            {
+              left: `${element.x}%`,
+              opacity: element.opacity,
+              "--element-size": element.size,
+              "--fall-duration": `${element.duration}s`,
+              "--fall-delay": `${element.delay}s`,
+              "--fall-drift": `${element.drift}px`,
+            } as React.CSSProperties
+          }
+        >
+          {element.kind === "heart" && (
+            <Heart size={15} strokeWidth={1.2} fill="currentColor" />
+          )}
+        </span>
+      ))}
+    </div>
+  );
+}
+
 function Intro({ onOpen }: { onOpen: () => void }) {
   return (
     <motion.section
@@ -285,7 +405,19 @@ function CalendarSection() {
           <span />
           {Array.from({ length: 30 }, (_, i) => (
             <span className={i + 1 === 16 ? "selected" : ""} key={i}>
-              {i + 1}
+              {i + 1 === 16 ? (
+                <>
+                  <Heart
+                    className="calendar-heart"
+                    size={39}
+                    strokeWidth={1.1}
+                    fill="currentColor"
+                  />
+                  <b>16</b>
+                </>
+              ) : (
+                i + 1
+              )}
             </span>
           ))}
         </motion.div>
@@ -645,6 +777,7 @@ export default function Invitation() {
         animate={{ opacity: 1 }}
         transition={{ duration: 0.8 }}
       >
+        <AmbientElements />
         <motion.div className="progress-line" style={{ scaleX }} />
         <header className="site-header">
           <a href="#invitation" className="header-logo">

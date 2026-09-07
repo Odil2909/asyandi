@@ -47,6 +47,74 @@ a {
 .site-frame {
   min-height: 100vh;
   background: var(--paper);
+  position: relative;
+}
+.ambient-layer {
+  position: fixed;
+  z-index: 2;
+  inset: 0;
+  overflow: hidden;
+  pointer-events: none;
+}
+.ambient-element {
+  position: absolute;
+  top: -12vh;
+  display: block;
+  width: calc(15px * var(--element-size));
+  height: calc(20px * var(--element-size));
+  color: var(--wine);
+  transform-origin: center;
+  animation: ambient-fall var(--fall-duration) var(--fall-delay) linear infinite;
+  will-change: transform, opacity;
+}
+.ambient-petal {
+  border: 1px solid currentColor;
+  border-radius: 100% 0 100% 0;
+  transform: rotate(35deg);
+}
+.ambient-heart {
+  height: auto;
+  color: var(--wine);
+}
+.ambient-heart svg {
+  display: block;
+  width: calc(15px * var(--element-size));
+  height: calc(15px * var(--element-size));
+}
+@keyframes ambient-fall {
+  0% {
+    opacity: 0;
+    transform: translate3d(0, -8vh, 0) rotate(-18deg);
+  }
+  9% {
+    opacity: 1;
+  }
+  48% {
+    transform: translate3d(var(--fall-drift), 53vh, 0) rotate(150deg);
+  }
+  88% {
+    opacity: 0.72;
+  }
+  100% {
+    opacity: 0;
+    transform: translate3d(calc(var(--fall-drift) * -0.45), 116vh, 0)
+      rotate(330deg);
+  }
+}
+.site-frame > main,
+.site-frame > .site-header,
+.site-frame > .footer,
+.site-frame > .music-button {
+  position: relative;
+}
+.site-frame > .site-header,
+.site-frame > .footer,
+.site-frame > .music-button {
+  z-index: 4;
+}
+.section-shell > * {
+  position: relative;
+  z-index: 3;
 }
 .progress-line {
   position: fixed;
@@ -492,17 +560,28 @@ h2 {
   place-items: center;
 }
 .calendar-days .selected {
-  border-radius: 50%;
-  color: var(--paper);
-  background: var(--wine);
   position: relative;
+  color: var(--wine);
+  z-index: 0;
+}
+.calendar-days .selected .calendar-heart {
+  position: absolute;
+  inset: 50% auto auto 50%;
+  width: 39px;
+  height: 39px;
+  color: var(--wine);
+  transform: translate(-50%, -50%);
+  z-index: 0;
+}
+.calendar-days .selected b {
+  position: relative;
+  z-index: 1;
+  color: var(--paper);
+  font-size: 11px;
+  font-weight: 600;
 }
 .calendar-days .selected::after {
-  content: "";
-  position: absolute;
-  inset: -5px;
-  border: 1px solid var(--wine);
-  border-radius: 50%;
+  display: none;
 }
 .calendar-footer {
   border-top: 1px solid var(--line);
@@ -1028,6 +1107,12 @@ h2 {
 @keyframes spin {
   to {
     transform: rotate(360deg);
+  }
+}
+@media (prefers-reduced-motion: reduce) {
+  .ambient-element {
+    animation: none;
+    display: none;
   }
 }
 @media (min-width: 760px) {
