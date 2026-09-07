@@ -1009,7 +1009,7 @@ h2 {
   gap: 8px;
   padding: 0;
   color: var(--ink);
-  font-size: 10px;
+  font-size: 12px;
 }
 .contact-actions svg {
   color: var(--wine);

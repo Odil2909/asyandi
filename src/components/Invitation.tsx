@@ -561,9 +561,50 @@ function Tolchabi() {
 }
 function RSVP() {
   const [sent, setSent] = useState(false);
-  const submit = (event: FormEvent<HTMLFormElement>) => {
+  const [isSubmitting, setIsSubmitting] = useState(false);
+  const [error, setError] = useState("");
+  const submit = async (event: FormEvent<HTMLFormElement>) => {
     event.preventDefault();
-    setSent(true);
+    if (isSubmitting) return;
+
+    const form = event.currentTarget;
+    const formData = new FormData(form);
+    const attending: "да" | "нет" =
+      formData.get("attendance") === "yes" ? "да" : "нет";
+    const payload = {
+      name: String(formData.get("name") ?? "").trim(),
+      guests: String(formData.get("guests") ?? "1"),
+      attending,
+      comment: String(formData.get("message") ?? "").trim(),
+    };
+
+    setError("");
+    setIsSubmitting(true);
+    try {
+      const response = await fetch("/api/rsvp", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(payload),
+      });
+      if (response.status !== 200) {
+        const result = (await response.json().catch(() => null)) as {
+          error?: string;
+        } | null;
+        throw new Error(
+          result?.error || `Не удалось сохранить ответ (HTTP ${response.status}).`,
+        );
+      }
+      setSent(true);
+      form.reset();
+    } catch (submissionError) {
+      setError(
+        submissionError instanceof Error
+          ? submissionError.message
+          : "Не удалось сохранить ответ. Проверьте соединение и попробуйте ещё раз.",
+      );
+    } finally {
+      setIsSubmitting(false);
+    }
   };
   return (
     <Section className="rsvp-section" id="rsvp">
@@ -637,9 +678,16 @@ function RSVP() {
               variants={reveal}
               className="primary-button"
               type="submit"
+              disabled={isSubmitting}
             >
-              Подтвердить <ArrowUpRight size={16} />
+              {isSubmitting ? "Сохраняем..." : "Подтвердить"}{" "}
+              <ArrowUpRight size={16} />
             </motion.button>
+            {error && (
+              <p className="rsvp-error" role="alert">
+                {error}
+              </p>
+            )}
           </motion.form>
         )}
       </AnimatePresence>
