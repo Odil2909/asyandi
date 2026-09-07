@@ -1,6 +1,6 @@
 "use client";
 
-import { FormEvent, useEffect, useState } from "react";
+import { FormEvent, useEffect, useRef, useState } from "react";
 import { AnimatePresence, motion, useScroll, useSpring } from "framer-motion";
 import {
   ArrowDown,
@@ -819,30 +819,71 @@ function Footer() {
   );
 }
 function MusicPlayer() {
+  const audioRef = useRef<HTMLAudioElement>(null);
+  const manuallyPausedRef = useRef(false);
   const [playing, setPlaying] = useState(false);
+  const [hasStarted, setHasStarted] = useState(false);
+  const startedRef = useRef(false);
+
+  const playMusic = () => {
+    const audio = audioRef.current;
+    if (!audio || manuallyPausedRef.current || startedRef.current) return;
+    audio
+      .play()
+      .then(() => {
+        startedRef.current = true;
+        setHasStarted(true);
+        setPlaying(true);
+      })
+      .catch(() => setPlaying(false));
+  };
+
+  useEffect(() => {
+    const startAfterInteraction = (event: Event) => {
+      if ((event.target as HTMLElement | null)?.closest(".music-button")) return;
+      playMusic();
+    };
+    window.addEventListener("pointerdown", startAfterInteraction, true);
+    window.addEventListener("touchstart", startAfterInteraction, true);
+    window.addEventListener("click", startAfterInteraction, true);
+    return () => {
+      window.removeEventListener("pointerdown", startAfterInteraction, true);
+      window.removeEventListener("touchstart", startAfterInteraction, true);
+      window.removeEventListener("click", startAfterInteraction, true);
+    };
+  }, []);
+
   const toggle = () => {
-    const audio = document.querySelector<HTMLAudioElement>("#invitation-audio");
+    const audio = audioRef.current;
     if (!audio) return;
-    if (playing) {
+    if (!audio.paused) {
+      manuallyPausedRef.current = true;
       audio.pause();
       setPlaying(false);
-    } else {
-      audio
-        .play()
-        .then(() => setPlaying(true))
-        .catch(() => setPlaying(false));
+      return;
     }
+    manuallyPausedRef.current = false;
+    audio
+      .play()
+      .then(() => {
+        startedRef.current = true;
+        setHasStarted(true);
+        setPlaying(true);
+      })
+      .catch(() => setPlaying(false));
   };
   return (
     <>
-      <audio id="invitation-audio" loop src="/music/invitation.mp3" />
-      <button
-        aria-label={playing ? "Поставить музыку на паузу" : "Включить музыку"}
-        className={`music-button ${playing ? "is-playing" : ""}`}
-        onClick={toggle}
-      >
-        {playing ? <Pause size={16} /> : <Music2 size={16} />}
-      </button>
+      <audio ref={audioRef} loop src="/music/Jah%20Khalib%20-%20%D0%94%D0%BE%D1%87%D0%B0.mp3" />
+      {hasStarted && (
+        <button
+          aria-label={playing ? "Поставить музыку на паузу" : "Включить музыку"}
+          className={`music-button ${playing ? "is-playing" : ""}`}
+          onClick={toggle}
+        >
+          {playing ? <Pause size={16} /> : <Music2 size={16} />}
+        </button>
+      )}
     </>
   );
 }
