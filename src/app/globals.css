@@ -164,7 +164,7 @@ a {
   justify-content: space-between;
   letter-spacing: 0.16em;
   text-transform: uppercase;
-  font-size: 9px;
+  font-size: 10px;
   opacity: 0.74;
 }
 .intro-center {
@@ -180,7 +180,7 @@ a {
 }
 .eyebrow,
 .section-label {
-  font-size: 9px;
+  font-size: 11px;
   text-transform: uppercase;
   letter-spacing: 0.18em;
   color: var(--muted);
@@ -190,12 +190,12 @@ a {
 }
 .intro-screen h1 {
   margin: 13px 0 8px;
-  font: 400 clamp(54px, 16vw, 82px)/0.85 var(--serif);
+  font: 400 clamp(58px, 17vw, 86px)/0.88 var(--serif);
   letter-spacing: -0.03em;
 }
 .intro-subtitle {
   margin: 0;
-  font: 400 16px var(--serif);
+  font: 400 19px var(--serif);
   letter-spacing: 0.03em;
 }
 .intro-subtitle span,
@@ -204,8 +204,8 @@ a {
   opacity: 0.5;
 }
 .intro-date {
-  margin-top: 32px;
-  font-size: 11px;
+  margin-top: 30px;
+  font-size: 14px;
   letter-spacing: 0.24em;
 }
 .scroll-cue {
@@ -220,7 +220,7 @@ a {
   border: 0;
   border-bottom: 1px solid rgba(255, 248, 245, 0.58);
   padding: 0 2px 13px;
-  font-size: 10px;
+  font-size: 12px;
   letter-spacing: 0.1em;
   cursor: pointer;
 }
@@ -388,20 +388,20 @@ a {
 }
 .hero-title,
 h2 {
-  font: 400 50px/0.9 var(--serif);
+  font: 400 54px/0.94 var(--serif);
   letter-spacing: -0.025em;
   margin: 0;
 }
 .hero-lead {
-  margin: 18px 0 27px;
-  font: 400 22px/1.12 var(--serif);
+  margin: 20px 0 29px;
+  font: 400 25px/1.18 var(--serif);
 }
 .hero-details {
   display: flex;
   justify-content: center;
   align-items: center;
   gap: 15px;
-  font-size: 11px;
+  font-size: 13px;
   letter-spacing: 0.08em;
   text-transform: uppercase;
   color: var(--muted);
@@ -427,7 +427,7 @@ h2 {
   align-items: center;
   gap: 8px;
   color: var(--wine);
-  font-size: 10px;
+  font-size: 12px;
   letter-spacing: 0.11em;
   text-transform: uppercase;
   border-bottom: 1px solid rgba(111, 39, 53, 0.4);
@@ -450,11 +450,11 @@ h2 {
 .invitation-copy {
   max-width: 500px;
   margin: 0 0 22px;
-  font: 400 25px/1.15 var(--serif);
+  font: 400 29px/1.2 var(--serif);
 }
 .invitation-copy.muted {
   color: var(--muted);
-  font: 400 16px/1.65 var(--sans);
+  font: 400 19px/1.7 var(--sans);
   max-width: 490px;
 }
 .signature {
@@ -463,7 +463,7 @@ h2 {
   gap: 8px;
   margin-top: 38px;
   color: var(--wine);
-  font: 400 21px var(--serif);
+  font: 400 24px var(--serif);
 }
 .signature svg {
   margin: 0 5px;
@@ -472,7 +472,7 @@ h2 {
   text-align: center;
 }
 .countdown-section h2 {
-  font-size: 43px;
+  font-size: 48px;
   margin-bottom: 36px;
 }
 .countdown-grid {
@@ -492,11 +492,11 @@ h2 {
   border: 0;
 }
 .countdown-unit strong {
-  font: 400 34px var(--serif);
+  font: 400 38px var(--serif);
   color: var(--wine);
 }
 .countdown-unit span {
-  font-size: 8px;
+  font-size: 10px;
   text-transform: uppercase;
   letter-spacing: 0.12em;
   color: var(--muted);
@@ -507,7 +507,7 @@ h2 {
   align-items: center;
   gap: 8px;
   color: var(--wine);
-  font: 400 22px var(--serif);
+  font: 400 25px var(--serif);
 }
 .calendar-section {
   padding-top: 16px;
@@ -525,10 +525,10 @@ h2 {
   border-bottom: 1px solid var(--line);
 }
 .calendar-heading span {
-  font: 400 26px var(--serif);
+  font: 400 30px var(--serif);
 }
 .calendar-heading strong {
-  font-size: 10px;
+  font-size: 12px;
   color: var(--muted);
   font-weight: 400;
   letter-spacing: 0.12em;
@@ -547,12 +547,12 @@ h2 {
   padding: 19px 0 10px;
   color: var(--muted);
   text-transform: uppercase;
-  font-size: 8px;
+  font-size: 10px;
   letter-spacing: 0.08em;
 }
 .calendar-days {
   gap: 6px 0;
-  font-size: 11px;
+  font-size: 13px;
 }
 .calendar-days span {
   aspect-ratio: 1;
@@ -577,7 +577,7 @@ h2 {
   position: relative;
   z-index: 1;
   color: var(--paper);
-  font-size: 11px;
+  font-size: 13px;
   font-weight: 600;
 }
 .calendar-days .selected::after {
@@ -590,7 +590,7 @@ h2 {
   display: flex;
   justify-content: space-between;
   color: var(--wine);
-  font: 400 18px var(--serif);
+  font: 400 21px var(--serif);
 }
 .program-section {
   width: 100%;
@@ -616,7 +616,7 @@ h2 {
 .tolchabi-section h2,
 .rsvp-section h2,
 .contacts-section h2 {
-  font-size: 50px;
+  font-size: 55px;
 }
 .program-section h2 em,
 .tolchabi-section h2 em,
@@ -625,7 +625,7 @@ h2 {
   font-style: italic;
 }
 .heading-korean {
-  font: 400 14px var(--serif);
+  font: 400 16px var(--serif);
   opacity: 0.6;
   writing-mode: vertical-rl;
   letter-spacing: 0.16em;
@@ -643,7 +643,7 @@ h2 {
   border-bottom: 1px solid rgba(244, 240, 232, 0.25);
 }
 .timeline-time {
-  font-size: 10px;
+  font-size: 13px;
   letter-spacing: 0.08em;
   color: rgba(244, 240, 232, 0.67);
   padding-top: 2px;
@@ -658,11 +658,11 @@ h2 {
 }
 .timeline-content h3 {
   margin: 0 0 6px;
-  font: 400 20px var(--serif);
+  font: 400 24px var(--serif);
 }
 .timeline-content p {
   margin: 0;
-  font-size: 10px;
+  font-size: 13px;
   color: rgba(244, 240, 232, 0.6);
 }
 .tolchabi-section {
@@ -682,7 +682,7 @@ h2 {
   margin-bottom: 15px;
 }
 .tolchabi-intro h2 {
-  font-size: 48px;
+  font-size: 54px;
 }
 .tolchabi-illustration {
   width: 92px;
@@ -723,8 +723,8 @@ h2 {
 .tolchabi-copy {
   max-width: 500px;
   margin: 0 0 34px;
-  font-size: 15px;
-  line-height: 1.65;
+  font-size: 18px;
+  line-height: 1.7;
   color: var(--muted);
 }
 .tolchabi-grid {
@@ -747,13 +747,13 @@ h2 {
 }
 .tolchabi-item h3 {
   margin: 17px 0 4px;
-  font: 400 20px var(--serif);
+  font: 400 23px var(--serif);
 }
 .tolchabi-item p {
   margin: 0;
-  font-size: 10px;
+  font-size: 12px;
   color: var(--muted);
-  line-height: 1.4;
+  line-height: 1.5;
 }
 .ball-icon {
   display: block;
@@ -785,7 +785,7 @@ h2 {
 .rsvp-subtitle {
   color: var(--muted);
   margin: 0 0 33px;
-  font-size: 13px;
+  font-size: 16px;
 }
 .rsvp-form {
   display: grid;
@@ -795,7 +795,7 @@ h2 {
   display: grid;
   gap: 8px;
   color: var(--muted);
-  font-size: 9px;
+  font-size: 11px;
   text-transform: uppercase;
   letter-spacing: 0.12em;
 }
@@ -816,6 +816,10 @@ h2 {
 .rsvp-form input::placeholder,
 .rsvp-form textarea::placeholder {
   color: rgba(129, 120, 109, 0.65);
+}
+.rsvp-form input::placeholder,
+.rsvp-form textarea::placeholder {
+  font-size: 16px;
 }
 .rsvp-form textarea {
   font-family: var(--sans);
@@ -842,7 +846,7 @@ h2 {
   text-align: center;
   border: 1px solid var(--line);
   color: var(--muted);
-  font-size: 10px;
+  font-size: 12px;
   cursor: pointer;
 }
 .choice-row input:checked + span {
@@ -862,7 +866,7 @@ h2 {
   color: var(--paper);
   background: var(--wine);
   cursor: pointer;
-  font-size: 10px;
+  font-size: 12px;
   letter-spacing: 0.12em;
   text-transform: uppercase;
 }
@@ -879,7 +883,7 @@ h2 {
 .thanks-card p {
   margin: 0;
   color: var(--muted);
-  font-size: 12px;
+  font-size: 14px;
 }
 .location-section {
   width: 100%;
@@ -949,11 +953,11 @@ h2 {
   padding: 22px 19px 19px;
 }
 .location-info h2 {
-  font-size: 32px;
+  font-size: 38px;
 }
 .location-info p {
   color: var(--muted);
-  font-size: 12px;
+  font-size: 15px;
   margin: 8px 0 23px;
 }
 .map-buttons {
@@ -969,7 +973,7 @@ h2 {
   padding: 13px 0;
   border-top: 1px solid var(--line);
   color: var(--wine);
-  font-size: 10px;
+  font-size: 12px;
   letter-spacing: 0.08em;
   text-transform: uppercase;
 }
@@ -988,7 +992,7 @@ h2 {
   justify-content: center;
   gap: 7px;
   color: var(--wine);
-  font: 400 24px var(--serif);
+  font: 400 28px var(--serif);
 }
 .contact-names i {
   font-style: normal;
@@ -1054,20 +1058,20 @@ h2 {
   width: 26px;
 }
 .footer-korean {
-  font: 400 20px var(--serif);
+  font: 400 23px var(--serif);
   opacity: 0.65;
   margin: 0 0 25px;
 }
 .footer h2 {
-  font-size: 53px;
+  font-size: 59px;
   margin-bottom: 20px;
 }
 .footer > p:not(.footer-korean) {
-  font: 400 20px/1.25 var(--serif);
+  font: 400 23px/1.3 var(--serif);
   margin: 0 0 22px;
 }
 .footer > span {
-  font-size: 9px;
+  font-size: 11px;
   letter-spacing: 0.24em;
   opacity: 0.55;
 }
@@ -1079,8 +1083,8 @@ h2 {
   align-items: center;
   justify-content: space-between;
   text-align: left;
-  font-size: 9px;
-  line-height: 1.5;
+  font-size: 11px;
+  line-height: 1.6;
   opacity: 0.65;
 }
 .footer-bottom svg {
