@@ -591,7 +591,8 @@ function RSVP() {
           error?: string;
         } | null;
         throw new Error(
-          result?.error || `Не удалось сохранить ответ (HTTP ${response.status}).`,
+          result?.error ||
+            `Не удалось сохранить ответ (HTTP ${response.status}).`,
         );
       }
       setSent(true);
@@ -840,7 +841,8 @@ function MusicPlayer() {
 
   useEffect(() => {
     const startAfterInteraction = (event: Event) => {
-      if ((event.target as HTMLElement | null)?.closest(".music-button")) return;
+      if ((event.target as HTMLElement | null)?.closest(".music-button"))
+        return;
       playMusic();
     };
     window.addEventListener("pointerdown", startAfterInteraction, true);
@@ -874,7 +876,11 @@ function MusicPlayer() {
   };
   return (
     <>
-      <audio ref={audioRef} loop src="/music/Jah%20Khalib%20-%20%D0%94%D0%BE%D1%87%D0%B0.mp3" />
+      <audio
+        ref={audioRef}
+        loop
+        src="/music/Jah%20Khalib%20-%20%D0%94%D0%BE%D1%87%D0%B0.mp3"
+      />
       {hasStarted && (
         <button
           aria-label={playing ? "Поставить музыку на паузу" : "Включить музыку"}

@@ -307,7 +307,14 @@ a {
   margin: 0 7px;
 }
 .hero-section {
-  min-height: 690px;
+  width: 100%;
+  min-height: 100dvh;
+  background-image:
+    linear-gradient(rgba(255, 248, 245, 0.12), rgba(255, 248, 245, 0.12)),
+    url("/hero-67.jpg");
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
   padding-top: 28px;
   text-align: center;
 }
