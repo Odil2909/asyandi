@@ -316,11 +316,10 @@ function Hero() {
     <Section className="hero-section" id="invitation">
       <Image
         className="hero-background"
-        src="/hero-67.PNG"
+        src="/hero-67-new.jpg"
         alt=""
         fill
         priority
-        unoptimized
         sizes="100vw"
         aria-hidden="true"
       />
