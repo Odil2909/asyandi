@@ -335,7 +335,7 @@ function Hero() {
         Айлин
       </motion.h2>
       <motion.p variants={reveal} className="hero-lead">
-        разделить с нами
+        Разделите с нами
         <br />
         её первый важный день
       </motion.p>
