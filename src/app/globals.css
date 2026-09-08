@@ -311,7 +311,7 @@ a {
   min-height: 100dvh;
   position: relative;
   overflow: hidden;
-  padding-top: 28px;
+  padding-top: 8px;
   text-align: center;
 }
 .hero-background {
@@ -334,75 +334,8 @@ a {
   color: var(--muted);
   text-align: left;
 }
-.hero-visual {
-  height: 315px;
-  margin: 48px auto 27px;
-  position: relative;
-  display: grid;
-  place-items: center;
-}
-.hero-ring {
-  position: absolute;
-  border: 1px solid rgba(111, 39, 53, 0.42);
-  border-radius: 50%;
-}
-.hero-ring-one {
-  width: 260px;
-  height: 260px;
-}
-.hero-ring-two {
-  width: 206px;
-  height: 206px;
-  border-color: rgba(41, 37, 31, 0.18);
-}
-.hero-seal {
-  width: 125px;
-  height: 125px;
-  border: 1px solid var(--wine);
-  border-radius: 50%;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  gap: 5px;
-  color: var(--wine);
-  transform: rotate(-7deg);
-}
-.hero-seal span {
-  font: 400 30px var(--serif);
-  line-height: 0.7;
-}
-.hero-seal small {
-  font-size: 8px;
-  letter-spacing: 0.16em;
-  text-transform: uppercase;
-}
-.hero-petal {
-  position: absolute;
-  border: 1px solid var(--wine);
-  border-radius: 100% 0;
-  width: 25px;
-  height: 42px;
-  opacity: 0.65;
-}
-.petal-one {
-  top: 27px;
-  right: 24%;
-  transform: rotate(28deg);
-}
-.petal-two {
-  bottom: 29px;
-  left: 19%;
-  transform: rotate(208deg);
-}
-.petal-three {
-  top: 40%;
-  right: 11%;
-  width: 15px;
-  height: 26px;
-  transform: rotate(115deg);
-}
 .hero-section .section-label {
+  margin-top: 0;
   margin-bottom: 15px;
 }
 .hero-title,
@@ -412,7 +345,7 @@ h2 {
   margin: 0;
 }
 .hero-lead {
-  margin: 20px 0 29px;
+  margin: 20px 0 8px;
   font: 400 25px/1.18 var(--serif);
 }
 .hero-details {
@@ -451,6 +384,13 @@ h2 {
   text-transform: uppercase;
   border-bottom: 1px solid rgba(111, 39, 53, 0.4);
   padding-bottom: 8px;
+}
+.hero-section .text-link {
+  position: absolute;
+  inset-inline: 0;
+  top: 77%;
+  width: fit-content;
+  margin: 0 auto;
 }
 .text-section {
   width: 100%;
@@ -1167,17 +1107,6 @@ h2 {
   }
   .hero-background {
     object-position: 50% 50%;
-  }
-  .hero-visual {
-    height: 370px;
-  }
-  .hero-ring-one {
-    width: 315px;
-    height: 315px;
-  }
-  .hero-ring-two {
-    width: 250px;
-    height: 250px;
   }
   .text-section,
   .program-section,

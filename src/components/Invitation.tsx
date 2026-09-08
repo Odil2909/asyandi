@@ -328,18 +328,6 @@ function Hero() {
         <span>Асянди</span>
         <span>16 · 09 · 2026</span>
       </div>
-      <div className="hero-visual" aria-hidden="true">
-        <div className="hero-ring hero-ring-one" />
-        <div className="hero-ring hero-ring-two" />
-        <div className="hero-seal">
-          <span>첫</span>
-          <small>birthday</small>
-          <span>생일</span>
-        </div>
-        <div className="hero-petal petal-one" />
-        <div className="hero-petal petal-two" />
-        <div className="hero-petal petal-three" />
-      </div>
       <motion.p variants={reveal} className="section-label">
         С любовью приглашаем
       </motion.p>
