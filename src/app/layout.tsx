@@ -8,11 +8,11 @@ const cormorant = Cormorant_Garamond({
 });
 
 export const metadata: Metadata = {
-  title: "Асянди Ан Айлин — 16 сентября 2026",
-  description: "Приглашение на первый день рождения Ан Айлин.",
+  title: "Асянди Айлин — 16 сентября 2026",
+  description: "Приглашение на первый день рождения Айлин.",
   openGraph: {
-    title: "Асянди Ан Айлин — 16 сентября 2026",
-    description: "Приглашение на первый день рождения Ан Айлин.",
+    title: "Асянди Айлин — 16 сентября 2026",
+    description: "Приглашение на первый день рождения Айлин.",
     type: "website",
     locale: "ru_RU",
   },

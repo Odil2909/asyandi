@@ -1,5 +1,5 @@
 export const invitation = {
-  childName: "Ан Айлин",
+  childName: "Айлин",
   birthDate: "16.09.2025",
   age: 1,
   eventDate: "16.09.2026",

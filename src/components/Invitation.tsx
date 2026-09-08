@@ -289,7 +289,7 @@ function Intro({ onOpen }: { onOpen: () => void }) {
         <motion.p variants={reveal} className="eyebrow">
           Приглашение на Асянди
         </motion.p>
-        <motion.h1 variants={reveal}>Ан Айлин</motion.h1>
+        <motion.h1 variants={reveal}>Айлин</motion.h1>
         <motion.p variants={reveal} className="intro-subtitle">
           첫 번째 생일 <span>·</span> первый день рождения
         </motion.p>
@@ -345,7 +345,7 @@ function Hero() {
         С любовью приглашаем
       </motion.p>
       <motion.h2 variants={reveal} className="hero-title">
-        Ан Айлин
+        Айлин
       </motion.h2>
       <motion.p variants={reveal} className="hero-lead">
         разделить с нами
@@ -755,8 +755,8 @@ function Contacts() {
     const url = window.location.href;
     if (navigator.share)
       await navigator.share({
-        title: "Асянди Ан Айлин",
-        text: "Приглашение на первый день рождения Ан Айлин",
+        title: "Асянди Айлин",
+        text: "Приглашение на первый день рождения Айлин",
         url,
       });
     else {
@@ -813,7 +813,7 @@ function Footer() {
     <footer className="footer">
       <Ornament small />
       <p className="footer-korean">사랑을 담아</p>
-      <h2>Ан Айлин</h2>
+      <h2>Айлин</h2>
       <p>
         С любовью,
         <br />
