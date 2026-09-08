@@ -514,7 +514,7 @@ function Program() {
           <motion.div
             variants={reveal}
             className="timeline-item"
-            key={item.time}
+            key={`${item.time}-${item.title}`}
           >
             <div className="timeline-time">{item.time}</div>
             <div className="timeline-dot" />
