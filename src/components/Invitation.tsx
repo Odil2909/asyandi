@@ -316,7 +316,7 @@ function Hero() {
     <Section className="hero-section" id="invitation">
       <Image
         className="hero-background"
-        src="/hero-67-new.jpg"
+        src="/hero-67-current.png"
         alt=""
         fill
         priority
